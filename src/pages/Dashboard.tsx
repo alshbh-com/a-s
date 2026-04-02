@@ -346,7 +346,7 @@ export default function Dashboard() {
                           <div className={`flex items-center gap-1 mt-0.5 text-[10px] opacity-50 ${isMine ? 'justify-end' : 'justify-start'}`}>
                             <span>{new Date(m.created_at).toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })}</span>
                             {isMine && (m.is_read
-                              ? <CheckCheck className="h-3 w-3 text-[hsl(217,91%,60%)]" />
+                              ? <CheckCheck className="h-3 w-3 text-info" />
                               : <Check className="h-3 w-3" />
                             )}
                           </div>
