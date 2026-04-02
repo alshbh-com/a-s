@@ -321,26 +321,26 @@ export default function AccountingDashboard() {
         <TabsContent value="pnl" className="mt-4">
           <Card>
             <CardContent className="pt-6 space-y-3">
-              <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-success/10 rounded-lg">
                 <span>إيرادات الشحن (تسليمات + رفض مدفوع)</span>
-                <span className="text-xl font-bold text-green-600">{totalShippingRevenue.toLocaleString()}</span>
+                <span className="text-xl font-bold text-success">{totalShippingRevenue.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-950/20 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-destructive/10 rounded-lg">
                 <span>إجمالي المصاريف</span>
-                <span className="text-xl font-bold text-red-600">{totalExpenses.toLocaleString()}</span>
+                <span className="text-xl font-bold text-destructive">{totalExpenses.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-950/20 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-warning/10 rounded-lg">
                 <span>خسائر المرتجعات</span>
-                <span className="text-xl font-bold text-orange-600">{layer1TotalReturns.toLocaleString()}</span>
+                <span className="text-xl font-bold text-warning">{layer1TotalReturns.toLocaleString()}</span>
               </div>
               <div className="border-t pt-3 space-y-2">
-                <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                <div className="flex justify-between items-center p-3 bg-info/10 rounded-lg">
                   <span className="font-bold">إجمالي الربح</span>
-                  <span className="text-xl font-bold text-blue-600">{grossProfit.toLocaleString()}</span>
+                  <span className="text-xl font-bold text-info">{grossProfit.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                   <span className="font-bold text-lg">صافي الربح</span>
-                  <span className={`text-2xl font-bold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}`}>{netProfit.toLocaleString()}</span>
+                  <span className={`text-2xl font-bold ${netProfit >= 0 ? 'text-success' : 'text-destructive'}`}>{netProfit.toLocaleString()}</span>
                 </div>
               </div>
             </CardContent>
