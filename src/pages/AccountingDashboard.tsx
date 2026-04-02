@@ -495,11 +495,11 @@ export default function AccountingDashboard() {
                   return (
                     <TableRow key={day}>
                       <TableCell className="font-medium">{format(new Date(day), 'dd/MM/yyyy')}</TableCell>
-                      <TableCell className="text-green-600">{d.delivered.toLocaleString()}</TableCell>
-                      <TableCell className="text-blue-600">{d.shipping.toLocaleString()}</TableCell>
-                      <TableCell className="text-red-600">{d.returns.toLocaleString()}</TableCell>
-                      <TableCell className="text-orange-600">{d.expenses.toLocaleString()}</TableCell>
-                      <TableCell className={`font-bold ${dayNet >= 0 ? 'text-green-600' : 'text-red-600'}`}>{dayNet.toLocaleString()}</TableCell>
+                      <TableCell className="text-success">{d.delivered.toLocaleString()}</TableCell>
+                      <TableCell className="text-info">{d.shipping.toLocaleString()}</TableCell>
+                      <TableCell className="text-destructive">{d.returns.toLocaleString()}</TableCell>
+                      <TableCell className="text-warning">{d.expenses.toLocaleString()}</TableCell>
+                      <TableCell className={`font-bold ${dayNet >= 0 ? 'text-success' : 'text-destructive'}`}>{dayNet.toLocaleString()}</TableCell>
                     </TableRow>
                   );
                 })}
