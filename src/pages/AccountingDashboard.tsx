@@ -274,8 +274,8 @@ export default function AccountingDashboard() {
               <CardContent><p className="text-2xl font-bold text-green-600">{layer1TotalDelivered.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
-              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><TrendingDown className="h-4 w-4 text-red-500" /> إجمالي المرتجعات</CardTitle></CardHeader>
-              <CardContent><p className="text-2xl font-bold text-red-600">{layer1TotalReturns.toLocaleString()}</p></CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><TrendingDown className="h-4 w-4 text-destructive" /> إجمالي المرتجعات</CardTitle></CardHeader>
+              <CardContent><p className="text-2xl font-bold text-destructive">{layer1TotalReturns.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><DollarSign className="h-4 w-4 text-blue-500" /> إيرادات الشحن</CardTitle></CardHeader>
