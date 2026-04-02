@@ -339,7 +339,7 @@ export default function Dashboard() {
                       <div key={m.id} className={`flex ${isMine ? 'justify-start' : 'justify-end'} mb-1`}>
                         <div className={`relative max-w-[80%] rounded-lg px-2.5 py-1.5 text-xs shadow-sm ${
                           isMine
-                            ? 'bg-[hsl(142,60%,85%)] text-[hsl(142,70%,15%)] rounded-tl-none'
+                            ? 'bg-chat/20 text-chat-foreground rounded-tl-none'
                             : 'bg-card text-card-foreground rounded-tr-none border border-border'
                         }`}>
                           <p className="leading-relaxed">{m.message}</p>
