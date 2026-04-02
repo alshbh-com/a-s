@@ -88,7 +88,7 @@ export default function OfficeStats() {
                   <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
                     {pieData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                   </Pie>
-                  <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
+                  <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
