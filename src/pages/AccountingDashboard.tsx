@@ -283,7 +283,7 @@ export default function AccountingDashboard() {
             </Card>
             <Card>
               <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><ArrowUpDown className="h-4 w-4 text-primary" /> صافي الإيرادات</CardTitle></CardHeader>
-              <CardContent><p className={`text-2xl font-bold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}`}>{netProfit.toLocaleString()}</p></CardContent>
+              <CardContent><p className={`text-2xl font-bold ${netProfit >= 0 ? 'text-success' : 'text-destructive'}`}>{netProfit.toLocaleString()}</p></CardContent>
             </Card>
           </div>
 
