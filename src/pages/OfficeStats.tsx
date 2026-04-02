@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-const COLORS = ['hsl(217,91%,60%)', 'hsl(142,76%,36%)', 'hsl(38,92%,50%)', 'hsl(0,72%,51%)', 'hsl(270,60%,60%)', 'hsl(200,70%,50%)', 'hsl(160,60%,45%)', 'hsl(340,65%,47%)'];
+const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hsl(0,85%,55%)', 'hsl(270,60%,60%)', 'hsl(200,100%,62%)', 'hsl(160,60%,45%)', 'hsl(340,65%,47%)'];
 
 export default function OfficeStats() {
   const [offices, setOffices] = useState<any[]>([]);
