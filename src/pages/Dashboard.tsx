@@ -307,7 +307,7 @@ export default function Dashboard() {
             ) : (
               <>
                 {/* Chat Header */}
-                <div className="bg-[hsl(142,70%,28%)] text-white flex items-center gap-2 p-2.5 shrink-0">
+                <div className="bg-chat text-chat-foreground flex items-center gap-2 p-2.5 shrink-0">
                   <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 h-7 w-7" onClick={() => setSelectedChat(null)}>
                     ←
                   </Button>
