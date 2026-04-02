@@ -305,9 +305,9 @@ export default function AccountingDashboard() {
                   {Object.entries(revenueByOffice).map(([offId, data]) => (
                     <TableRow key={offId}>
                       <TableCell className="font-medium">{getOfficeName(offId)}</TableCell>
-                      <TableCell className="text-green-600">{data.delivered.toLocaleString()}</TableCell>
-                      <TableCell className="text-blue-600">{data.shipping.toLocaleString()}</TableCell>
-                      <TableCell className="text-red-600">{data.returns.toLocaleString()}</TableCell>
+                      <TableCell className="text-success">{data.delivered.toLocaleString()}</TableCell>
+                      <TableCell className="text-info">{data.shipping.toLocaleString()}</TableCell>
+                      <TableCell className="text-destructive">{data.returns.toLocaleString()}</TableCell>
                       <TableCell className="font-bold">{(data.shipping).toLocaleString()}</TableCell>
                     </TableRow>
                   ))}
