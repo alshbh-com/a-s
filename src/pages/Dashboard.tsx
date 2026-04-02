@@ -263,7 +263,7 @@ export default function Dashboard() {
                     <MessageSquare className="h-5 w-5" />
                     <span className="font-bold text-sm">المحادثات</span>
                     {totalUnread > 0 && (
-                      <span className="bg-white text-[hsl(142,70%,28%)] text-xs font-bold rounded-full px-1.5 py-0.5 min-w-[20px] text-center">{totalUnread}</span>
+                      <span className="bg-white text-chat text-xs font-bold rounded-full px-1.5 py-0.5 min-w-[20px] text-center">{totalUnread}</span>
                     )}
                   </div>
                   <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 h-7 w-7" onClick={() => setChatOpen(false)}>
