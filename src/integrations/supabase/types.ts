@@ -701,7 +701,7 @@ export type Database = {
           product_id: string | null
           product_name: string | null
           quantity: number | null
-          shipping_paid: boolean | null
+          shipping_paid: number | null
           size: string | null
           status_id: string | null
           tracking_id: string | null
@@ -730,7 +730,7 @@ export type Database = {
           product_id?: string | null
           product_name?: string | null
           quantity?: number | null
-          shipping_paid?: boolean | null
+          shipping_paid?: number | null
           size?: string | null
           status_id?: string | null
           tracking_id?: string | null
@@ -759,7 +759,7 @@ export type Database = {
           product_id?: string | null
           product_name?: string | null
           quantity?: number | null
-          shipping_paid?: boolean | null
+          shipping_paid?: number | null
           size?: string | null
           status_id?: string | null
           tracking_id?: string | null
