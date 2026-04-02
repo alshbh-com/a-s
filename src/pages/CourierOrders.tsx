@@ -484,7 +484,7 @@ export default function CourierOrders() {
       {!showChat && (
         <button
           onClick={() => setShowChat(true)}
-          className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[hsl(142,70%,28%)] text-white shadow-lg hover:bg-[hsl(142,70%,22%)] transition-all flex items-center justify-center"
+          className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-chat text-chat-foreground shadow-lg hover:bg-chat/80 transition-all flex items-center justify-center"
         >
           <MessageSquare className="h-6 w-6" />
           {chatContacts.reduce((s, c) => s + (c.unread || 0), 0) > 0 && (
