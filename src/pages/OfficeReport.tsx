@@ -75,10 +75,10 @@ export default function OfficeReport() {
         <>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">إجمالي</p><p className="text-lg font-bold">{orders.length}</p></CardContent></Card>
-            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">تم التسليم</p><p className="text-lg font-bold text-emerald-500">{delivered.length}</p></CardContent></Card>
+            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">تم التسليم</p><p className="text-lg font-bold text-success">{delivered.length}</p></CardContent></Card>
             <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">مرتجع</p><p className="text-lg font-bold text-destructive">{returned.length}</p></CardContent></Card>
-            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">معلق</p><p className="text-lg font-bold text-amber-500">{pending.length}</p></CardContent></Card>
-            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">تسليم جزئي</p><p className="text-lg font-bold text-blue-500">{partial.length}</p></CardContent></Card>
+            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">معلق</p><p className="text-lg font-bold text-warning">{pending.length}</p></CardContent></Card>
+            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">تسليم جزئي</p><p className="text-lg font-bold text-info">{partial.length}</p></CardContent></Card>
           </div>
 
           <Card className="bg-card border-border">
