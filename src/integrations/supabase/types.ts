@@ -920,6 +920,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      is_owner: { Args: { _user_id: string }; Returns: boolean }
       log_activity: {
         Args: { _action: string; _details?: Json }
         Returns: undefined
