@@ -312,8 +312,8 @@ export default function CourierOrders() {
               const totalCollection = deliveredTotal + partialTotal + rejectShipTotal;
               return (
                 <div className="flex justify-between items-center border-t border-border pt-2">
-                  <span className="text-sm font-medium text-emerald-600">إجمالي التحصيل</span>
-                  <span className="font-bold text-lg text-emerald-600">{totalCollection} ج.م</span>
+                  <span className="text-sm font-medium text-success">إجمالي التحصيل</span>
+                  <span className="font-bold text-lg text-success">{totalCollection} ج.م</span>
                 </div>
               );
             })()}
@@ -368,7 +368,7 @@ export default function CourierOrders() {
                       <TableCell className="font-mono text-xs">
                         {order.customer_code || '-'}
                         {order.priority === 'urgent' && <Badge variant="destructive" className="mr-1 text-xs">عاجل</Badge>}
-                        {order.priority === 'vip' && <Badge className="mr-1 text-xs bg-amber-500">VIP</Badge>}
+                        {order.priority === 'vip' && <Badge className="mr-1 text-xs bg-warning">VIP</Badge>}
                       </TableCell>
                       <TableCell className="text-sm">{order.customer_name}</TableCell>
                       <TableCell className="text-sm truncate max-w-[120px]">{order.address || '-'}</TableCell>
@@ -454,7 +454,7 @@ export default function CourierOrders() {
                 <Button size="sm" variant="outline" className="flex-1" asChild>
                   <a href={`sms:${selectedOrder.customer_phone}`}><MessageSquare className="h-4 w-4 ml-1" />رسالة</a>
                 </Button>
-                <Button size="sm" variant="outline" className="flex-1 text-emerald-500" asChild>
+                <Button size="sm" variant="outline" className="flex-1 text-success" asChild>
                   <a href={`https://wa.me/${selectedOrder.customer_phone?.replace(/^0/, '20')}`} target="_blank" rel="noopener noreferrer"><Send className="h-4 w-4 ml-1" />واتساب</a>
                 </Button>
               </div>
@@ -484,7 +484,7 @@ export default function CourierOrders() {
       {!showChat && (
         <button
           onClick={() => setShowChat(true)}
-          className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[hsl(142,70%,28%)] text-white shadow-lg hover:bg-[hsl(142,70%,22%)] transition-all flex items-center justify-center"
+          className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-chat text-chat-foreground shadow-lg hover:bg-chat/80 transition-all flex items-center justify-center"
         >
           <MessageSquare className="h-6 w-6" />
           {chatContacts.reduce((s, c) => s + (c.unread || 0), 0) > 0 && (

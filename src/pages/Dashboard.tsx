@@ -241,7 +241,7 @@ export default function Dashboard() {
         {!chatOpen && (
           <button
             onClick={() => setChatOpen(true)}
-            className="relative w-14 h-14 rounded-full bg-[hsl(142,70%,28%)] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
+            className="relative w-14 h-14 rounded-full bg-chat text-chat-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
           >
             <MessageSquare className="h-6 w-6" />
             {totalUnread > 0 && (
@@ -258,12 +258,12 @@ export default function Dashboard() {
             {!selectedChat ? (
               <>
                 {/* Contacts Header */}
-                <div className="bg-[hsl(142,70%,28%)] text-white p-3 flex items-center justify-between shrink-0">
+                <div className="bg-chat text-chat-foreground p-3 flex items-center justify-between shrink-0">
                   <div className="flex items-center gap-2">
                     <MessageSquare className="h-5 w-5" />
                     <span className="font-bold text-sm">المحادثات</span>
                     {totalUnread > 0 && (
-                      <span className="bg-white text-[hsl(142,70%,28%)] text-xs font-bold rounded-full px-1.5 py-0.5 min-w-[20px] text-center">{totalUnread}</span>
+                      <span className="bg-white text-chat text-xs font-bold rounded-full px-1.5 py-0.5 min-w-[20px] text-center">{totalUnread}</span>
                     )}
                   </div>
                   <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 h-7 w-7" onClick={() => setChatOpen(false)}>
@@ -281,8 +281,8 @@ export default function Dashboard() {
                       onClick={() => setSelectedChat(c.id)}
                       className={`w-full p-3 flex items-center gap-3 text-right hover:bg-accent/40 transition-colors ${i < chatContacts.length - 1 ? 'border-b border-border' : ''}`}
                     >
-                      <div className="w-10 h-10 rounded-full bg-[hsl(142,70%,28%)]/10 flex items-center justify-center shrink-0">
-                        <User className="h-5 w-5 text-[hsl(142,70%,28%)]" />
+                      <div className="w-10 h-10 rounded-full bg-chat/10 flex items-center justify-center shrink-0">
+                        <User className="h-5 w-5 text-chat" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
@@ -296,7 +296,7 @@ export default function Dashboard() {
                             {c.lastMessage || c.role}
                           </p>
                           {c.unread > 0 && (
-                            <span className="bg-[hsl(142,70%,28%)] text-white text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center">{c.unread}</span>
+                            <span className="bg-chat text-chat-foreground text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center">{c.unread}</span>
                           )}
                         </div>
                       </div>
@@ -307,7 +307,7 @@ export default function Dashboard() {
             ) : (
               <>
                 {/* Chat Header */}
-                <div className="bg-[hsl(142,70%,28%)] text-white flex items-center gap-2 p-2.5 shrink-0">
+                <div className="bg-chat text-chat-foreground flex items-center gap-2 p-2.5 shrink-0">
                   <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 h-7 w-7" onClick={() => setSelectedChat(null)}>
                     ←
                   </Button>
@@ -339,14 +339,14 @@ export default function Dashboard() {
                       <div key={m.id} className={`flex ${isMine ? 'justify-start' : 'justify-end'} mb-1`}>
                         <div className={`relative max-w-[80%] rounded-lg px-2.5 py-1.5 text-xs shadow-sm ${
                           isMine
-                            ? 'bg-[hsl(142,60%,85%)] text-[hsl(142,70%,15%)] rounded-tl-none'
+                            ? 'bg-chat/20 text-chat-foreground rounded-tl-none'
                             : 'bg-card text-card-foreground rounded-tr-none border border-border'
                         }`}>
                           <p className="leading-relaxed">{m.message}</p>
                           <div className={`flex items-center gap-1 mt-0.5 text-[10px] opacity-50 ${isMine ? 'justify-end' : 'justify-start'}`}>
                             <span>{new Date(m.created_at).toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })}</span>
                             {isMine && (m.is_read
-                              ? <CheckCheck className="h-3 w-3 text-[hsl(217,91%,60%)]" />
+                              ? <CheckCheck className="h-3 w-3 text-info" />
                               : <Check className="h-3 w-3" />
                             )}
                           </div>
@@ -368,7 +368,7 @@ export default function Dashboard() {
                     onClick={sendMsg}
                     disabled={sending || !newMsg.trim()}
                     size="icon"
-                    className="h-9 w-9 shrink-0 rounded-full bg-[hsl(142,70%,28%)] hover:bg-[hsl(142,70%,22%)]"
+                    className="h-9 w-9 shrink-0 rounded-full bg-chat hover:bg-chat/80"
                   >
                     <Send className="h-4 w-4" />
                   </Button>

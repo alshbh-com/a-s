@@ -274,16 +274,16 @@ export default function AccountingDashboard() {
               <CardContent><p className="text-2xl font-bold text-green-600">{layer1TotalDelivered.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
-              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><TrendingDown className="h-4 w-4 text-red-500" /> إجمالي المرتجعات</CardTitle></CardHeader>
-              <CardContent><p className="text-2xl font-bold text-red-600">{layer1TotalReturns.toLocaleString()}</p></CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><TrendingDown className="h-4 w-4 text-destructive" /> إجمالي المرتجعات</CardTitle></CardHeader>
+              <CardContent><p className="text-2xl font-bold text-destructive">{layer1TotalReturns.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
-              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><DollarSign className="h-4 w-4 text-blue-500" /> إيرادات الشحن</CardTitle></CardHeader>
-              <CardContent><p className="text-2xl font-bold text-blue-600">{totalShippingRevenue.toLocaleString()}</p></CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><DollarSign className="h-4 w-4 text-info" /> إيرادات الشحن</CardTitle></CardHeader>
+              <CardContent><p className="text-2xl font-bold text-info">{totalShippingRevenue.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><ArrowUpDown className="h-4 w-4 text-primary" /> صافي الإيرادات</CardTitle></CardHeader>
-              <CardContent><p className={`text-2xl font-bold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}`}>{netProfit.toLocaleString()}</p></CardContent>
+              <CardContent><p className={`text-2xl font-bold ${netProfit >= 0 ? 'text-success' : 'text-destructive'}`}>{netProfit.toLocaleString()}</p></CardContent>
             </Card>
           </div>
 
@@ -305,9 +305,9 @@ export default function AccountingDashboard() {
                   {Object.entries(revenueByOffice).map(([offId, data]) => (
                     <TableRow key={offId}>
                       <TableCell className="font-medium">{getOfficeName(offId)}</TableCell>
-                      <TableCell className="text-green-600">{data.delivered.toLocaleString()}</TableCell>
-                      <TableCell className="text-blue-600">{data.shipping.toLocaleString()}</TableCell>
-                      <TableCell className="text-red-600">{data.returns.toLocaleString()}</TableCell>
+                      <TableCell className="text-success">{data.delivered.toLocaleString()}</TableCell>
+                      <TableCell className="text-info">{data.shipping.toLocaleString()}</TableCell>
+                      <TableCell className="text-destructive">{data.returns.toLocaleString()}</TableCell>
                       <TableCell className="font-bold">{(data.shipping).toLocaleString()}</TableCell>
                     </TableRow>
                   ))}
@@ -321,26 +321,26 @@ export default function AccountingDashboard() {
         <TabsContent value="pnl" className="mt-4">
           <Card>
             <CardContent className="pt-6 space-y-3">
-              <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-950/20 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-success/10 rounded-lg">
                 <span>إيرادات الشحن (تسليمات + رفض مدفوع)</span>
-                <span className="text-xl font-bold text-green-600">{totalShippingRevenue.toLocaleString()}</span>
+                <span className="text-xl font-bold text-success">{totalShippingRevenue.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-950/20 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-destructive/10 rounded-lg">
                 <span>إجمالي المصاريف</span>
-                <span className="text-xl font-bold text-red-600">{totalExpenses.toLocaleString()}</span>
+                <span className="text-xl font-bold text-destructive">{totalExpenses.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-950/20 rounded-lg">
+              <div className="flex justify-between items-center p-3 bg-warning/10 rounded-lg">
                 <span>خسائر المرتجعات</span>
-                <span className="text-xl font-bold text-orange-600">{layer1TotalReturns.toLocaleString()}</span>
+                <span className="text-xl font-bold text-warning">{layer1TotalReturns.toLocaleString()}</span>
               </div>
               <div className="border-t pt-3 space-y-2">
-                <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
+                <div className="flex justify-between items-center p-3 bg-info/10 rounded-lg">
                   <span className="font-bold">إجمالي الربح</span>
-                  <span className="text-xl font-bold text-blue-600">{grossProfit.toLocaleString()}</span>
+                  <span className="text-xl font-bold text-info">{grossProfit.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                   <span className="font-bold text-lg">صافي الربح</span>
-                  <span className={`text-2xl font-bold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}`}>{netProfit.toLocaleString()}</span>
+                  <span className={`text-2xl font-bold ${netProfit >= 0 ? 'text-success' : 'text-destructive'}`}>{netProfit.toLocaleString()}</span>
                 </div>
               </div>
             </CardContent>
@@ -495,11 +495,11 @@ export default function AccountingDashboard() {
                   return (
                     <TableRow key={day}>
                       <TableCell className="font-medium">{format(new Date(day), 'dd/MM/yyyy')}</TableCell>
-                      <TableCell className="text-green-600">{d.delivered.toLocaleString()}</TableCell>
-                      <TableCell className="text-blue-600">{d.shipping.toLocaleString()}</TableCell>
-                      <TableCell className="text-red-600">{d.returns.toLocaleString()}</TableCell>
-                      <TableCell className="text-orange-600">{d.expenses.toLocaleString()}</TableCell>
-                      <TableCell className={`font-bold ${dayNet >= 0 ? 'text-green-600' : 'text-red-600'}`}>{dayNet.toLocaleString()}</TableCell>
+                      <TableCell className="text-success">{d.delivered.toLocaleString()}</TableCell>
+                      <TableCell className="text-info">{d.shipping.toLocaleString()}</TableCell>
+                      <TableCell className="text-destructive">{d.returns.toLocaleString()}</TableCell>
+                      <TableCell className="text-warning">{d.expenses.toLocaleString()}</TableCell>
+                      <TableCell className={`font-bold ${dayNet >= 0 ? 'text-success' : 'text-destructive'}`}>{dayNet.toLocaleString()}</TableCell>
                     </TableRow>
                   );
                 })}
