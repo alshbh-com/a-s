@@ -241,7 +241,7 @@ export default function Dashboard() {
         {!chatOpen && (
           <button
             onClick={() => setChatOpen(true)}
-            className="relative w-14 h-14 rounded-full bg-[hsl(142,70%,28%)] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
+            className="relative w-14 h-14 rounded-full bg-chat text-chat-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
           >
             <MessageSquare className="h-6 w-6" />
             {totalUnread > 0 && (
