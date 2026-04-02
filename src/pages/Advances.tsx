@@ -110,9 +110,9 @@ export default function Advances() {
     return 'إضافي';
   };
   const typeColor = (t: string) => {
-    if (t === 'advance') return 'bg-amber-500';
+    if (t === 'advance') return 'bg-warning';
     if (t === 'deduction') return 'bg-destructive';
-    return 'bg-emerald-500';
+    return 'bg-success';
   };
 
   return (
