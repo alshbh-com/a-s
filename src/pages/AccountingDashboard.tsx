@@ -278,8 +278,8 @@ export default function AccountingDashboard() {
               <CardContent><p className="text-2xl font-bold text-destructive">{layer1TotalReturns.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
-              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><DollarSign className="h-4 w-4 text-blue-500" /> إيرادات الشحن</CardTitle></CardHeader>
-              <CardContent><p className="text-2xl font-bold text-blue-600">{totalShippingRevenue.toLocaleString()}</p></CardContent>
+              <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><DollarSign className="h-4 w-4 text-info" /> إيرادات الشحن</CardTitle></CardHeader>
+              <CardContent><p className="text-2xl font-bold text-info">{totalShippingRevenue.toLocaleString()}</p></CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2"><CardTitle className="text-sm text-muted-foreground flex items-center gap-2"><ArrowUpDown className="h-4 w-4 text-primary" /> صافي الإيرادات</CardTitle></CardHeader>
