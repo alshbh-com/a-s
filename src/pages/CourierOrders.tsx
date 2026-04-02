@@ -454,7 +454,7 @@ export default function CourierOrders() {
                 <Button size="sm" variant="outline" className="flex-1" asChild>
                   <a href={`sms:${selectedOrder.customer_phone}`}><MessageSquare className="h-4 w-4 ml-1" />رسالة</a>
                 </Button>
-                <Button size="sm" variant="outline" className="flex-1 text-emerald-500" asChild>
+                <Button size="sm" variant="outline" className="flex-1 text-success" asChild>
                   <a href={`https://wa.me/${selectedOrder.customer_phone?.replace(/^0/, '20')}`} target="_blank" rel="noopener noreferrer"><Send className="h-4 w-4 ml-1" />واتساب</a>
                 </Button>
               </div>

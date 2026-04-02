@@ -368,7 +368,7 @@ export default function Dashboard() {
                     onClick={sendMsg}
                     disabled={sending || !newMsg.trim()}
                     size="icon"
-                    className="h-9 w-9 shrink-0 rounded-full bg-[hsl(142,70%,28%)] hover:bg-[hsl(142,70%,22%)]"
+                    className="h-9 w-9 shrink-0 rounded-full bg-chat hover:bg-chat/80"
                   >
                     <Send className="h-4 w-4" />
                   </Button>
