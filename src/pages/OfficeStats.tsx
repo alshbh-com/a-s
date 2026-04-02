@@ -101,12 +101,12 @@ export default function OfficeStats() {
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={barData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(220,16%,20%)" />
-                  <XAxis dataKey="name" tick={{ fontSize: 9, fill: 'hsl(215,20%,60%)' }} />
-                  <YAxis tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                  <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
-                  <Bar dataKey="أوردرات" fill="hsl(217,91%,60%)" />
-                  <Bar dataKey="تسليم" fill="hsl(142,76%,36%)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(228,15%,18%)" />
+                  <XAxis dataKey="name" tick={{ fontSize: 9, fill: 'hsl(220,15%,55%)' }} />
+                  <YAxis tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                  <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
+                  <Bar dataKey="أوردرات" fill="hsl(210,100%,56%)" />
+                  <Bar dataKey="تسليم" fill="hsl(152,70%,42%)" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
