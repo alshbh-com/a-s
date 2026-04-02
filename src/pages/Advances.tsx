@@ -173,9 +173,9 @@ export default function Advances() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">الراتب</p><p className="text-lg font-bold">{salaryNum} ج.م</p></CardContent></Card>
-            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">الإضافي</p><p className="text-lg font-bold text-emerald-500">{totalExtra} ج.م</p></CardContent></Card>
+            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">الإضافي</p><p className="text-lg font-bold text-success">{totalExtra} ج.م</p></CardContent></Card>
             <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">السلف + الخصومات</p><p className="text-lg font-bold text-destructive">{totalAdvances + totalDeductions} ج.م</p></CardContent></Card>
-            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">الناتج</p><p className={`text-lg font-bold ${netResult >= 0 ? 'text-emerald-500' : 'text-destructive'}`}>{netResult} ج.م</p></CardContent></Card>
+            <Card className="bg-card border-border"><CardContent className="p-3 text-center"><p className="text-xs text-muted-foreground">الناتج</p><p className={`text-lg font-bold ${netResult >= 0 ? 'text-success' : 'text-destructive'}`}>{netResult} ج.م</p></CardContent></Card>
           </div>
 
           <Card className="bg-card border-border p-3">
