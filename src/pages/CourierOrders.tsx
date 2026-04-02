@@ -368,7 +368,7 @@ export default function CourierOrders() {
                       <TableCell className="font-mono text-xs">
                         {order.customer_code || '-'}
                         {order.priority === 'urgent' && <Badge variant="destructive" className="mr-1 text-xs">عاجل</Badge>}
-                        {order.priority === 'vip' && <Badge className="mr-1 text-xs bg-amber-500">VIP</Badge>}
+                        {order.priority === 'vip' && <Badge className="mr-1 text-xs bg-warning">VIP</Badge>}
                       </TableCell>
                       <TableCell className="text-sm">{order.customer_name}</TableCell>
                       <TableCell className="text-sm truncate max-w-[120px]">{order.address || '-'}</TableCell>
