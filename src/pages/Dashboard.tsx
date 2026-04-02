@@ -258,7 +258,7 @@ export default function Dashboard() {
             {!selectedChat ? (
               <>
                 {/* Contacts Header */}
-                <div className="bg-[hsl(142,70%,28%)] text-white p-3 flex items-center justify-between shrink-0">
+                <div className="bg-chat text-chat-foreground p-3 flex items-center justify-between shrink-0">
                   <div className="flex items-center gap-2">
                     <MessageSquare className="h-5 w-5" />
                     <span className="font-bold text-sm">المحادثات</span>
