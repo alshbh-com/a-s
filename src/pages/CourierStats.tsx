@@ -66,8 +66,8 @@ export default function CourierStats() {
 
   const topThree = courierData.slice(0, 3);
   const medals = [
-    { icon: Trophy, color: 'hsl(38,92%,50%)' },
-    { icon: Medal, color: 'hsl(215,20%,60%)' },
+    { icon: Trophy, color: 'hsl(45,100%,50%)' },
+    { icon: Medal, color: 'hsl(220,15%,55%)' },
     { icon: Award, color: 'hsl(25,60%,45%)' },
   ];
 
