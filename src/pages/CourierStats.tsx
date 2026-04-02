@@ -101,13 +101,13 @@ export default function CourierStats() {
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(220,16%,20%)" />
-                <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                <YAxis tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
-                <Bar dataKey="تسليم" fill="hsl(142,76%,36%)" stackId="a" />
-                <Bar dataKey="مرتجع" fill="hsl(0,72%,51%)" stackId="a" />
-                <Bar dataKey="معلق" fill="hsl(38,92%,50%)" stackId="a" />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(228,15%,18%)" />
+                <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                <YAxis tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
+                <Bar dataKey="تسليم" fill="hsl(152,70%,42%)" stackId="a" />
+                <Bar dataKey="مرتجع" fill="hsl(0,85%,55%)" stackId="a" />
+                <Bar dataKey="معلق" fill="hsl(45,100%,50%)" stackId="a" />
               </BarChart>
             </ResponsiveContainer>
           </div>

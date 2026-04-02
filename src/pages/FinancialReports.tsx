@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
 import { TrendingUp, DollarSign, Package, Truck } from 'lucide-react';
 
-const COLORS = ['hsl(217,91%,60%)', 'hsl(142,76%,36%)', 'hsl(38,92%,50%)', 'hsl(0,72%,51%)', 'hsl(270,60%,60%)', 'hsl(200,70%,50%)'];
+const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hsl(0,85%,55%)', 'hsl(270,60%,60%)', 'hsl(200,100%,62%)'];
 
 export default function FinancialReports() {
   const [orders, setOrders] = useState<any[]>([]);

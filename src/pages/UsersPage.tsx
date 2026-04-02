@@ -187,9 +187,9 @@ export default function UsersPage() {
 
   const roleColor = (role: string) => {
     if (role === 'owner') return 'hsl(var(--primary))';
-    if (role === 'admin') return 'hsl(142, 76%, 36%)';
-    if (role === 'courier') return 'hsl(38, 92%, 50%)';
-    if (role === 'office') return 'hsl(200, 80%, 50%)';
+    if (role === 'admin') return 'hsl(var(--success))';
+    if (role === 'courier') return 'hsl(var(--accent))';
+    if (role === 'office') return 'hsl(var(--info))';
     return undefined;
   };
 
@@ -200,9 +200,9 @@ export default function UsersPage() {
   };
 
   const permColor = (p: PermissionLevel) => {
-    if (p === 'edit') return 'hsl(142, 76%, 36%)';
-    if (p === 'view') return 'hsl(38, 92%, 50%)';
-    return 'hsl(0, 72%, 51%)';
+    if (p === 'edit') return 'hsl(var(--success))';
+    if (p === 'view') return 'hsl(var(--warning))';
+    return 'hsl(var(--destructive))';
   };
 
   return (
