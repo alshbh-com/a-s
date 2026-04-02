@@ -296,7 +296,7 @@ export default function Dashboard() {
                             {c.lastMessage || c.role}
                           </p>
                           {c.unread > 0 && (
-                            <span className="bg-[hsl(142,70%,28%)] text-white text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center">{c.unread}</span>
+                            <span className="bg-chat text-chat-foreground text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center">{c.unread}</span>
                           )}
                         </div>
                       </div>
