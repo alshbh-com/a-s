@@ -312,8 +312,8 @@ export default function CourierOrders() {
               const totalCollection = deliveredTotal + partialTotal + rejectShipTotal;
               return (
                 <div className="flex justify-between items-center border-t border-border pt-2">
-                  <span className="text-sm font-medium text-emerald-600">إجمالي التحصيل</span>
-                  <span className="font-bold text-lg text-emerald-600">{totalCollection} ج.م</span>
+                  <span className="text-sm font-medium text-success">إجمالي التحصيل</span>
+                  <span className="font-bold text-lg text-success">{totalCollection} ج.م</span>
                 </div>
               );
             })()}
