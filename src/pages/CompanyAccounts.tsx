@@ -67,7 +67,7 @@ export default function CompanyAccounts() {
                   <TableCell>{a.orderCount}</TableCell>
                   <TableCell>{a.totalWork} ج.م</TableCell>
                   <TableCell>{a.totalPaid} ج.م</TableCell>
-                  <TableCell className={a.remaining > 0 ? 'text-amber-500 font-bold' : ''}>
+                  <TableCell className={a.remaining > 0 ? 'text-warning font-bold' : ''}>
                     {a.remaining} ج.م
                   </TableCell>
                 </TableRow>

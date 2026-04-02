@@ -407,9 +407,9 @@ export default function CourierTracking() {
             <CardContent className="p-2">
               <div ref={el => setHeatMapContainer(el)} className="h-[400px] sm:h-[450px] rounded-lg overflow-hidden border border-border" style={{ direction: 'ltr' }} />
               <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground justify-center">
-                <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#22c55e] inline-block" /> نسبة رفض منخفضة</span>
-                <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#f59e0b] inline-block" /> نسبة رفض متوسطة</span>
-                <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#ef4444] inline-block" /> نسبة رفض عالية</span>
+                <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-success inline-block" /> نسبة رفض منخفضة</span>
+                <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-warning inline-block" /> نسبة رفض متوسطة</span>
+                <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-destructive inline-block" /> نسبة رفض عالية</span>
               </div>
             </CardContent>
           </Card>

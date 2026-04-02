@@ -179,7 +179,7 @@ export default function Advances() {
           </div>
 
           <Card className="bg-card border-border p-3">
-            <p className="text-sm text-muted-foreground text-center">المعادلة: [الراتب ({salaryNum}) + الإضافي ({totalExtra})] - [السلف ({totalAdvances}) + الخصومات ({totalDeductions})] = <strong className={netResult >= 0 ? 'text-emerald-500' : 'text-destructive'}>{netResult} ج.م</strong></p>
+            <p className="text-sm text-muted-foreground text-center">المعادلة: [الراتب ({salaryNum}) + الإضافي ({totalExtra})] - [السلف ({totalAdvances}) + الخصومات ({totalDeductions})] = <strong className={netResult >= 0 ? 'text-success' : 'text-destructive'}>{netResult} ج.م</strong></p>
           </Card>
 
           <Card className="bg-card border-border">
