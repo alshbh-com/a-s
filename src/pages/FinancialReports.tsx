@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
 import { TrendingUp, DollarSign, Package, Truck } from 'lucide-react';
 
-const COLORS = ['hsl(217,91%,60%)', 'hsl(142,76%,36%)', 'hsl(38,92%,50%)', 'hsl(0,72%,51%)', 'hsl(270,60%,60%)', 'hsl(200,70%,50%)'];
+const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hsl(0,85%,55%)', 'hsl(270,60%,60%)', 'hsl(200,100%,62%)'];
 
 export default function FinancialReports() {
   const [orders, setOrders] = useState<any[]>([]);
@@ -114,12 +114,12 @@ export default function FinancialReports() {
           <div className="h-[250px] sm:h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={dailyData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(220,16%,20%)" />
-                <XAxis dataKey="date" tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                <YAxis tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff', fontSize: 12 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(228,15%,18%)" />
+                <XAxis dataKey="date" tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                <YAxis tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff', fontSize: 12 }} />
                 <Legend />
-                <Line type="monotone" dataKey="shipping" name="الشحن" stroke="hsl(38,92%,50%)" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="shipping" name="الشحن" stroke="hsl(45,100%,50%)" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -136,7 +136,7 @@ export default function FinancialReports() {
                   <Pie data={statusCounts} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, value }) => `${name}: ${value}`}>
                     {statusCounts.map((s, i) => <Cell key={i} fill={s.color} />)}
                   </Pie>
-                  <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
+                  <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
@@ -149,11 +149,11 @@ export default function FinancialReports() {
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={topOffices} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(220,16%,20%)" />
-                  <XAxis type="number" tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                  <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} width={80} />
-                  <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
-                  <Bar dataKey="count" fill="hsl(142,76%,36%)" radius={[0, 4, 4, 0]} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(228,15%,18%)" />
+                  <XAxis type="number" tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                  <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} width={80} />
+                  <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
+                  <Bar dataKey="count" fill="hsl(152,70%,42%)" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -167,11 +167,11 @@ export default function FinancialReports() {
           <div className="h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={dailyData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(220,16%,20%)" />
-                <XAxis dataKey="date" tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                <YAxis tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
-                <Bar dataKey="count" name="الأوردرات" fill="hsl(217,91%,60%)" radius={[4, 4, 0, 0]} />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(228,15%,18%)" />
+                <XAxis dataKey="date" tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                <YAxis tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
+                <Bar dataKey="count" name="الأوردرات" fill="hsl(210,100%,56%)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

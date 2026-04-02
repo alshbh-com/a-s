@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-const COLORS = ['hsl(217,91%,60%)', 'hsl(142,76%,36%)', 'hsl(38,92%,50%)', 'hsl(0,72%,51%)', 'hsl(270,60%,60%)', 'hsl(200,70%,50%)', 'hsl(160,60%,45%)', 'hsl(340,65%,47%)'];
+const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hsl(0,85%,55%)', 'hsl(270,60%,60%)', 'hsl(200,100%,62%)', 'hsl(160,60%,45%)', 'hsl(340,65%,47%)'];
 
 export default function OfficeStats() {
   const [offices, setOffices] = useState<any[]>([]);
@@ -88,7 +88,7 @@ export default function OfficeStats() {
                   <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
                     {pieData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                   </Pie>
-                  <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
+                  <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
@@ -101,12 +101,12 @@ export default function OfficeStats() {
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={barData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(220,16%,20%)" />
-                  <XAxis dataKey="name" tick={{ fontSize: 9, fill: 'hsl(215,20%,60%)' }} />
-                  <YAxis tick={{ fontSize: 10, fill: 'hsl(215,20%,60%)' }} />
-                  <Tooltip contentStyle={{ background: 'hsl(220,20%,13%)', border: '1px solid hsl(220,16%,20%)', borderRadius: 8, color: '#fff' }} />
-                  <Bar dataKey="أوردرات" fill="hsl(217,91%,60%)" />
-                  <Bar dataKey="تسليم" fill="hsl(142,76%,36%)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(228,15%,18%)" />
+                  <XAxis dataKey="name" tick={{ fontSize: 9, fill: 'hsl(220,15%,55%)' }} />
+                  <YAxis tick={{ fontSize: 10, fill: 'hsl(220,15%,55%)' }} />
+                  <Tooltip contentStyle={{ background: 'hsl(228,22%,12%)', border: '1px solid hsl(228,15%,18%)', borderRadius: 8, color: '#fff' }} />
+                  <Bar dataKey="أوردرات" fill="hsl(210,100%,56%)" />
+                  <Bar dataKey="تسليم" fill="hsl(152,70%,42%)" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
