@@ -135,7 +135,6 @@ export default function CourierOrders() {
         courier_id: user?.id || '',
         order_id: orderId,
         amount,
-        collected_by: user?.id,
       });
     }
   };
