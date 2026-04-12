@@ -84,7 +84,7 @@ export default function OfficeDiaries() {
       const newClosed = !diary.is_closed;
       const { error } = await supabase
         .from('diaries')
-        .update({ is_closed: newClosed, closed_at: newClosed ? new Date().toISOString() : null })
+        .update({ is_closed: newClosed })
         .eq('id', diary.id);
       if (error) throw error;
       await logActivity(newClosed ? 'قفل يومية' : 'إعادة فتح يومية', { diary_id: diary.id });
