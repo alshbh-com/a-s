@@ -44,7 +44,6 @@ export default function CopyOrderDialog({ open, onOpenChange, orderId, currentDi
         .insert({
           order_id: orderId!,
           diary_id: diaryId,
-          copied_from_diary_id: currentDiaryId,
         });
       if (error) throw error;
       await logActivity('نسخ أوردر إلى يومية قائمة', {
@@ -77,7 +76,6 @@ export default function CopyOrderDialog({ open, onOpenChange, orderId, currentDi
         .insert({
           order_id: orderId!,
           diary_id: newDiary.id,
-          copied_from_diary_id: currentDiaryId,
         });
       if (error) throw error;
       await logActivity('نسخ أوردر إلى يومية جديدة', {
