@@ -61,7 +61,12 @@ function LoginRedirect() {
   return <Login />;
 }
 
-const App = () => (
+const App = () => {
+  if (SYSTEM_LOCKED) {
+    return <SystemLocked />;
+  }
+
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
