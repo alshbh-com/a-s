@@ -48,9 +48,6 @@ import OfficeReport from "@/pages/OfficeReport";
 import TrashBin from "@/pages/TrashBin";
 import SystemGuide from "@/pages/SystemGuide";
 import NotFound from "./pages/NotFound";
-import SystemLocked from "@/pages/SystemLocked";
-
-const SYSTEM_LOCKED = false;
 
 const queryClient = new QueryClient();
 
@@ -61,12 +58,7 @@ function LoginRedirect() {
   return <Login />;
 }
 
-const App = () => {
-  if (SYSTEM_LOCKED) {
-    return <SystemLocked />;
-  }
-
-  return (
+const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -135,7 +127,6 @@ const App = () => {
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-  );
-};
+);
 
 export default App;

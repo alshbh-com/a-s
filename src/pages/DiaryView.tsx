@@ -86,7 +86,7 @@ export default function DiaryView() {
       const newClosed = !diary?.is_closed;
       const { error } = await supabase
         .from('diaries')
-        .update({ is_closed: newClosed })
+        .update({ is_closed: newClosed, closed_at: newClosed ? new Date().toISOString() : null })
         .eq('id', diaryId!);
       if (error) throw error;
       await logActivity(newClosed ? 'قفل يومية' : 'إعادة فتح يومية', { diary_id: diaryId });
