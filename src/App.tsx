@@ -50,7 +50,7 @@ import SystemGuide from "@/pages/SystemGuide";
 import NotFound from "./pages/NotFound";
 import SystemLocked from "@/pages/SystemLocked";
 
-const SYSTEM_LOCKED = true;
+const SYSTEM_LOCKED = false;
 
 const queryClient = new QueryClient();
 
