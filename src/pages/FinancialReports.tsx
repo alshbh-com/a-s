@@ -10,9 +10,17 @@ const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hs
 export default function FinancialReports() {
   const [orders, setOrders] = useState<any[]>([]);
   const [statuses, setStatuses] = useState<any[]>([]);
-  const [period, setPeriod] = useState('30');
+  const [period, setPeriod] = useState('2');
 
-  useEffect(() => { loadData(); }, [period]);
+  useEffect(() => {
+    loadData();
+    const channel = supabase
+      .channel('financial-reports-rt')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => loadData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'order_statuses' }, () => loadData())
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [period]);
 
   const loadData = async () => {
     const daysAgo = new Date();
