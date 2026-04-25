@@ -216,6 +216,7 @@ export type Database = {
       courier_collections: {
         Row: {
           amount: number | null
+          collected_by: string | null
           courier_id: string | null
           created_at: string
           id: string
@@ -223,6 +224,7 @@ export type Database = {
         }
         Insert: {
           amount?: number | null
+          collected_by?: string | null
           courier_id?: string | null
           created_at?: string
           id?: string
@@ -230,6 +232,7 @@ export type Database = {
         }
         Update: {
           amount?: number | null
+          collected_by?: string | null
           courier_id?: string | null
           created_at?: string
           id?: string
@@ -309,6 +312,7 @@ export type Database = {
       }
       diaries: {
         Row: {
+          closed_at: string | null
           created_at: string
           diary_date: string
           diary_number: number | null
@@ -325,6 +329,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          closed_at?: string | null
           created_at?: string
           diary_date?: string
           diary_number?: number | null
@@ -341,6 +346,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          closed_at?: string | null
           created_at?: string
           diary_date?: string
           diary_number?: number | null
@@ -368,6 +374,7 @@ export type Database = {
       }
       diary_orders: {
         Row: {
+          copied_from_diary_id: string | null
           created_at: string
           diary_id: string
           id: string
@@ -382,6 +389,7 @@ export type Database = {
           status_inside_diary: string | null
         }
         Insert: {
+          copied_from_diary_id?: string | null
           created_at?: string
           diary_id: string
           id?: string
@@ -396,6 +404,7 @@ export type Database = {
           status_inside_diary?: string | null
         }
         Update: {
+          copied_from_diary_id?: string | null
           created_at?: string
           diary_id?: string
           id?: string
