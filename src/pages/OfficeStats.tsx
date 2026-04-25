@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hsl(0,85%,55%)', 'hsl(270,60%,60%)', 'hsl(200,100%,62%)', 'hsl(160,60%,45%)', 'hsl(340,65%,47%)'];
@@ -10,13 +11,24 @@ export default function OfficeStats() {
   const [offices, setOffices] = useState<any[]>([]);
   const [orders, setOrders] = useState<any[]>([]);
   const [statuses, setStatuses] = useState<any[]>([]);
+  const [period, setPeriod] = useState('2');
 
-  useEffect(() => { loadData(); }, []);
+  useEffect(() => {
+    loadData();
+    const channel = supabase
+      .channel('office-stats-rt')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => loadData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'offices' }, () => loadData())
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [period]);
 
   const loadData = async () => {
+    const daysAgo = new Date();
+    daysAgo.setDate(daysAgo.getDate() - Number(period));
     const [officesRes, ordersRes, statusRes] = await Promise.all([
       supabase.from('offices').select('*'),
-      supabase.from('orders').select('*'),
+      supabase.from('orders').select('*').gte('created_at', daysAgo.toISOString()),
       supabase.from('order_statuses').select('*'),
     ]);
     setOffices(officesRes.data || []);
@@ -61,7 +73,20 @@ export default function OfficeStats() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-xl sm:text-2xl font-bold">إحصائيات المكاتب</h1>
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <h1 className="text-xl sm:text-2xl font-bold">إحصائيات المكاتب</h1>
+        <Select value={period} onValueChange={setPeriod}>
+          <SelectTrigger className="w-[140px] bg-secondary border-border"><SelectValue /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="2">آخر يومين</SelectItem>
+            <SelectItem value="7">آخر 7 أيام</SelectItem>
+            <SelectItem value="30">آخر 30 يوم</SelectItem>
+            <SelectItem value="60">آخر 60 يوم</SelectItem>
+            <SelectItem value="90">آخر 90 يوم</SelectItem>
+            <SelectItem value="365">آخر سنة</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
 
       <div className="grid gap-3 grid-cols-2 lg:grid-cols-3">
         <Card className="bg-card border-border"><CardContent className="p-4 text-center">

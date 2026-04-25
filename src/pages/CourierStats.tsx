@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Trophy, Medal, Award } from 'lucide-react';
 
@@ -10,13 +11,23 @@ export default function CourierStats() {
   const [couriers, setCouriers] = useState<any[]>([]);
   const [orders, setOrders] = useState<any[]>([]);
   const [statuses, setStatuses] = useState<any[]>([]);
+  const [period, setPeriod] = useState('2');
 
-  useEffect(() => { loadData(); }, []);
+  useEffect(() => {
+    loadData();
+    const channel = supabase
+      .channel('courier-stats-rt')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => loadData())
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [period]);
 
   const loadData = async () => {
+    const daysAgo = new Date();
+    daysAgo.setDate(daysAgo.getDate() - Number(period));
     const [rolesRes, ordersRes, statusRes] = await Promise.all([
       supabase.from('user_roles').select('user_id').eq('role', 'courier'),
-      supabase.from('orders').select('*').not('courier_id', 'is', null),
+      supabase.from('orders').select('*').not('courier_id', 'is', null).gte('created_at', daysAgo.toISOString()),
       supabase.from('order_statuses').select('*'),
     ]);
 
@@ -73,7 +84,20 @@ export default function CourierStats() {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-xl sm:text-2xl font-bold">إحصائيات المناديب</h1>
+      <div className="flex items-center justify-between flex-wrap gap-2">
+        <h1 className="text-xl sm:text-2xl font-bold">إحصائيات المناديب</h1>
+        <Select value={period} onValueChange={setPeriod}>
+          <SelectTrigger className="w-[140px] bg-secondary border-border"><SelectValue /></SelectTrigger>
+          <SelectContent>
+            <SelectItem value="2">آخر يومين</SelectItem>
+            <SelectItem value="7">آخر 7 أيام</SelectItem>
+            <SelectItem value="30">آخر 30 يوم</SelectItem>
+            <SelectItem value="60">آخر 60 يوم</SelectItem>
+            <SelectItem value="90">آخر 90 يوم</SelectItem>
+            <SelectItem value="365">آخر سنة</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
 
       <div className="grid gap-3 grid-cols-1 sm:grid-cols-3">
         {topThree.map((c, i) => {
