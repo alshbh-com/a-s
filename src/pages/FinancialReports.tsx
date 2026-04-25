@@ -79,6 +79,7 @@ export default function FinancialReports() {
         <Select value={period} onValueChange={setPeriod}>
           <SelectTrigger className="w-[140px] bg-secondary border-border"><SelectValue /></SelectTrigger>
           <SelectContent>
+            <SelectItem value="2">آخر يومين</SelectItem>
             <SelectItem value="7">آخر 7 أيام</SelectItem>
             <SelectItem value="14">آخر 14 يوم</SelectItem>
             <SelectItem value="30">آخر 30 يوم</SelectItem>
