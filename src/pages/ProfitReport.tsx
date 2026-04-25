@@ -10,9 +10,18 @@ export default function ProfitReport() {
   const [orders, setOrders] = useState<any[]>([]);
   const [offices, setOffices] = useState<any[]>([]);
   const [statuses, setStatuses] = useState<any[]>([]);
-  const [period, setPeriod] = useState('30');
+  const [period, setPeriod] = useState('2');
 
-  useEffect(() => { loadData(); }, [period]);
+  useEffect(() => {
+    loadData();
+    const channel = supabase
+      .channel('profit-report-rt')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => loadData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'order_statuses' }, () => loadData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'offices' }, () => loadData())
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [period]);
 
   const loadData = async () => {
     const daysAgo = new Date();
@@ -74,6 +83,7 @@ export default function ProfitReport() {
         <Select value={period} onValueChange={setPeriod}>
           <SelectTrigger className="w-[140px] bg-secondary border-border"><SelectValue /></SelectTrigger>
           <SelectContent>
+            <SelectItem value="2">آخر يومين</SelectItem>
             <SelectItem value="7">آخر 7 أيام</SelectItem>
             <SelectItem value="30">آخر 30 يوم</SelectItem>
             <SelectItem value="60">آخر 60 يوم</SelectItem>
