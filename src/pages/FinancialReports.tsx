@@ -10,9 +10,17 @@ const COLORS = ['hsl(210,100%,56%)', 'hsl(152,70%,42%)', 'hsl(45,100%,50%)', 'hs
 export default function FinancialReports() {
   const [orders, setOrders] = useState<any[]>([]);
   const [statuses, setStatuses] = useState<any[]>([]);
-  const [period, setPeriod] = useState('30');
+  const [period, setPeriod] = useState('2');
 
-  useEffect(() => { loadData(); }, [period]);
+  useEffect(() => {
+    loadData();
+    const channel = supabase
+      .channel('financial-reports-rt')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'orders' }, () => loadData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'order_statuses' }, () => loadData())
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [period]);
 
   const loadData = async () => {
     const daysAgo = new Date();
@@ -71,6 +79,7 @@ export default function FinancialReports() {
         <Select value={period} onValueChange={setPeriod}>
           <SelectTrigger className="w-[140px] bg-secondary border-border"><SelectValue /></SelectTrigger>
           <SelectContent>
+            <SelectItem value="2">آخر يومين</SelectItem>
             <SelectItem value="7">آخر 7 أيام</SelectItem>
             <SelectItem value="14">آخر 14 يوم</SelectItem>
             <SelectItem value="30">آخر 30 يوم</SelectItem>
